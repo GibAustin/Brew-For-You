@@ -14,13 +14,28 @@
 </head>
 
 <body>
-    <header class="header">
-        <h1>Brew For You</h1>
-    </header>
-    <form action="" method="GET">
-        <label for="search-breweries">Search by city or state</label>
-        <input id="js-search-bar" type="text" placeholder="Search...">
-    </form>
+    <main>
+        <section class="landing-page">
+            <header class="header">
+                <h1>Brew For You</h1>
+            </header>
+            <form action="" method="GET">
+                <label for="search-breweries">Search by city or state</label>
+                <input id="js-search-bar" type="text" placeholder="Search...">
+            </form>
+        </section>
+        <p id="js-error-message" class="error-message"></p>
+        <section class="results-page hidden">
+            <div class="brewery-list">
+                <ul>
+                </ul>
+            </div>
+            <div class="review-list">
+                <ul>
+                </ul>
+            </div>
+        </section>
+    </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="index.js"></script>
 </body>
