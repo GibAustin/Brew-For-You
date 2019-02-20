@@ -4,6 +4,7 @@
 
 html, body {
     height: 100%;
+    list-style: none;
 }
 
 .landing-page {
@@ -24,8 +25,4 @@ html, body {
 .results-page {
     display: flex;
     justify-content: space-around;
-}
-
-.results {
-    overflow-y: scroll;
 }
