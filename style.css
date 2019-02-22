@@ -4,14 +4,54 @@
 
 html, body {
     height: 100%;
+    margin: 0;
+    padding: 0;
     list-style: none;
+    text-align: center;
+    color: white;
+    background: linear-gradient( to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5) ),
+    url(images/background1.jpg) no-repeat;
+    background-size: 100% 100%;
 }
 
 .landing-page {
     display: flex;
+    position: relative;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    font-size: 4em;
+    font-family: 'Archivo Black', sans-serif;
+    letter-spacing: .01em;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid white;
+    background: none;
+    color: white;
+    font-weight: 600;
+    width: 90%;
+    padding: 8px 0;
+    margin-bottom: 10px;
+}
+
+button {
+    border: 2px solid white;
+    color: white;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.25);
+    padding: 8px 13px;
+
+}
+
+li {
+    font-family: 'Archivo Narrow', sans-serif;
 }
 
 .error-message {

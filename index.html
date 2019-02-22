@@ -5,32 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description"
-        content="Search for breweries by location and recieve reviews. Each brewery that results from users search will also return up to three reviews.">
+    <meta name="description" content="Search for breweries by location.">
     <title>Brew For You | Find Breweries</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css"
         media="screen" title="no title" charset="utf-8">
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Archivo+Narrow" rel="stylesheet">
 </head>
 
 <body>
     <main>
         <section class="landing-page">
-            <header class="header">
-                <h1>Brew For You</h1>
+            <header>
+                <h1 class="header">Brew For You</h1>
             </header>
             <form action="" method="GET">
-                <label for="search-breweries">Search by city:<br /></label>
-                <input id="js-search-bar" type="text" placeholder="Search...">
+                <input id="js-search-bar" type="text" placeholder="Try out a city here...">
+                <button class="submit-button" type="submit">Find Breweries</button>
             </form>
         </section>
         <p id="js-error-message" class="error-message"></p>
         <section class="results-page">
             <div class="brewery-list results hidden">
-                <ul>
-                </ul>
-            </div>
-            <div class="review-list results hidden">
                 <ul>
                 </ul>
             </div>
