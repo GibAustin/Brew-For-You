@@ -17,13 +17,17 @@ html, body {
     background-attachment: fixed;
 }
 
+ html {
+    font-size: calc(1em + 1vw);
+ }
+
 .container {
     min-height: 100%;
 }
 
 main {
     overflow: auto;
-    padding-bottom: 100px;
+    padding-bottom: 6.25em;
 }
 
 a {
@@ -42,7 +46,6 @@ a {
 }
 
 .header {
-    font-size: 55px;
     font-family: 'Archivo Black', sans-serif;
     text-shadow: rgb(119, 119, 119) 0px 0px 3px;
 }
@@ -54,22 +57,30 @@ input {
     color: white;
     font-weight: 600;
     width: 90%;
-    padding: 8px 0;
-    margin-bottom: 10px;
+    padding: 0.5em 0;
+    margin-bottom: 0.625em;
+    outline: none;
 }
 
 button {
     border: 2px solid white;
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.5);
     font-weight: 600;
+    background: rgba(255, 255, 255, 0.25);
+    padding: 0.5em  0.8em;
+    outline: none;
+}
+
+button:hover {
+    cursor: pointer;
     background: rgba(255, 255, 255, 0.4);
-    padding: 8px 13px;
+    color: white;
+
 }
 
 .brewery-list {
-    margin: 15px;
+    margin: 0.9375em;
 }
-
 
 li {
     position: relative;
@@ -82,19 +93,18 @@ li:hover {
     cursor: pointer;
     background: rgba(255, 255, 255, 0.4);
     transform: scale(1.05);
+    transition: 0.3s;
 }
 
 h3 {
-    font-size: 20px;
     font-weight: 600;
-    letter-spacing: 1px;
     margin: 5px;
     font-style: italic;
     color: white;
 }
 
 p {
-    margin: 5px;
+    margin:  0.3125em;
 }
 
 .error-message {
@@ -111,33 +121,12 @@ p {
 }
 
 footer {
-    position: relative;
-    height: 20px;
-    margin-top: -25px;
-    clear: both;
+    margin-top: -1.5625em;
+    font-size: 0.5em;
+    font-weight: 600;
+    opacity: 0.6;
 }
 
 footer a:hover {
-    font-size: 18px;
-}
-/* Media Queries */
-
-@media only screen and (min-width: 768px) {
-    li {
-        font-size: 25px;
-    }
-    
-    h3 {
-        font-size: 30px;
-    }
-}
-
-@media only screen and (min-width: 1440px) {
-    li {
-        font-size: 30px;
-    }
-    
-    h3 {
-        font-size: 45px;
-    }
+    text-decoration: underline;
 }
