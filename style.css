@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html, body {
@@ -15,18 +17,19 @@ html, body {
     background-attachment: fixed;
 }
 
+.container {
+    min-height: 100%;
+}
+
+main {
+    overflow: auto;
+    padding-bottom: 100px;
+}
+
 a {
     text-decoration: none;
-    color: white;
-    transition: color 0.5s, font-size 0.5s;
+    color: rgb(242, 242, 242);
 }
-
-a:hover {
-    cursor: pointer;
-    text-decoration: underline;
-    font-size: 18px;
-}
-
 
 .landing-page {
     display: flex;
@@ -41,7 +44,6 @@ a:hover {
 .header {
     font-size: 55px;
     font-family: 'Archivo Black', sans-serif;
-    letter-spacing: .1.5px;
     text-shadow: rgb(119, 119, 119) 0px 0px 3px;
 }
 
@@ -58,28 +60,37 @@ input {
 
 button {
     border: 2px solid white;
-    color: grey;
+    color: rgba(0, 0, 0, 0.5);
     font-weight: 600;
     background: rgba(255, 255, 255, 0.4);
     padding: 8px 13px;
 }
 
 .brewery-list {
-    background: rgba(255, 255, 255, 0.25);
-    margin-bottom: 10px;
+    margin: 15px;
 }
 
 
 li {
+    position: relative;
     font-family: 'Archivo Narrow', sans-serif;
-    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(0, 0, 0, 0.2); 
+}
+
+li:hover {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
 }
 
 h3 {
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 1px;
     margin: 5px;
+    font-style: italic;
+    color: white;
 }
 
 p {
@@ -99,6 +110,16 @@ p {
     justify-content: space-around;
 }
 
+footer {
+    position: relative;
+    height: 20px;
+    margin-top: -25px;
+    clear: both;
+}
+
+footer a:hover {
+    font-size: 18px;
+}
 /* Media Queries */
 
 @media only screen and (min-width: 768px) {
@@ -107,14 +128,6 @@ p {
     }
     
     h3 {
-        font-size: 30px;
-    }
-
-    a {
-        transition: color 0.5s, font-size 0.5s;
-    }
-    
-    a:hover {
         font-size: 30px;
     }
 }
@@ -126,13 +139,5 @@ p {
     
     h3 {
         font-size: 45px;
-    }
-
-    a {
-        transition: color 0.5s, font-size 0.5s;
-    }
-    
-    a:hover {
-        font-size: 35px;
     }
 }

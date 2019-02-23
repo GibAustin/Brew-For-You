@@ -1,19 +1,22 @@
 'use strict';
 const brewery_url = "https://api.openbrewerydb.org/breweries";
-
-// 
-var searchEx = [ 'Want some suggestions?', 'Chicago', 'San Francisco', 'Austin', 'New York City', 'Nashville', 'Atlanta', 'Portland', 'Denver', 'Raleigh', 'Detroit', 'San Diego', ];
-setInterval(function() {
-  $("input#js-search-bar").attr("placeholder", searchEx[searchEx.push(searchEx.shift())-1]);
+// Searchbar animation
+var searchEx = ['Want some suggestions?', 'Chicago', 'San Francisco', 'Austin', 'New York', 'Nashville', 'Atlanta', 'Portland', 'Denver', 'Raleigh', 'Detroit', 'San Diego',];
+setInterval(function () {
+    $("input#js-search-bar").attr("placeholder", searchEx[searchEx.push(searchEx.shift()) - 1]);
 }, 3000);
-
 // event listener for when the user searches a specific city
 function watchFormBreweries() {
     $('form').submit(event => {
         event.preventDefault();
         const city = $('#js-search-bar').val();
-        getBreweryResults(city);
-        $('.brewery-list').removeClass('hidden');
+        if (city === "") {
+            $('#js-search-bar').attr("placeholder", "Try out a city here...");
+        }
+        else {
+            getBreweryResults(city);
+            $('.brewery-list').removeClass('hidden');
+        }
     })
 }
 // fetch the results for search query from brewery_url
@@ -39,14 +42,14 @@ function displayBreweryResults(responseJson) {
     $('.error-message').empty();
     for (let i = 0; i < responseJson.length; i++)
         $('.brewery-list').append
-            (`<li class="review-link" data-longitude="${responseJson[i].longitude}" data-latitude="${responseJson[i].latitude}">
+            (`<li class="review-link">
+                <a href="${responseJson[i].website_url}" target="_blank">
                 <h3>${responseJson[i].name}</h3>
                 <p>${responseJson[i].street.length > 0 ? `${responseJson[i].street} </br>` : ''}${responseJson[i].city}, ${responseJson[i].state}</p>
-                <a href="${responseJson[i].website_url}" target="_blank">Check them out</a>
+                </a>
             </li>`)
     if (responseJson.length === 0) {
         $('#js-error-message').text('No results. Try again.');
     }
 }
-// handler 
 watchFormBreweries();
