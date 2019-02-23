@@ -1,15 +1,13 @@
 'use strict';
 const brewery_url = "https://api.openbrewerydb.org/breweries";
-const store = {
-    selectedBrewery: []
-}
 
-var searchEx = [ 'Want some suggestions?', 'Chicago', 'San Fransisco', 'Austin', 'New York', 'Nashville', 'Atlanta', 'Portland', 'Denver', 'Raleigh', 'Detroit', 'San Diego', ];
+// 
+var searchEx = [ 'Want some suggestions?', 'Chicago', 'San Francisco', 'Austin', 'New York City', 'Nashville', 'Atlanta', 'Portland', 'Denver', 'Raleigh', 'Detroit', 'San Diego', ];
 setInterval(function() {
   $("input#js-search-bar").attr("placeholder", searchEx[searchEx.push(searchEx.shift())-1]);
 }, 3000);
 
-// watchform 
+// event listener for when the user searches a specific city
 function watchFormBreweries() {
     $('form').submit(event => {
         event.preventDefault();
@@ -18,7 +16,7 @@ function watchFormBreweries() {
         $('.brewery-list').removeClass('hidden');
     })
 }
-// get results from brewery API
+// fetch the results for search query from brewery_url
 function getBreweryResults(city) {
     return fetch(`${brewery_url}?by_city=${encodeURIComponent(city)}`)
         .then(response => {
@@ -28,7 +26,6 @@ function getBreweryResults(city) {
             throw new Error(response.statusText);
         })
         .then(responseJson => {
-            store.selectedBrewery = responseJson;
             console.log(responseJson)
             displayBreweryResults(responseJson)
         })
@@ -36,7 +33,7 @@ function getBreweryResults(city) {
             $('#js-error-message').text('something went wrong');
         });
 }
-//display the results
+// display the search results for breweries
 function displayBreweryResults(responseJson) {
     $('.brewery-list').empty();
     $('.error-message').empty();
@@ -44,8 +41,8 @@ function displayBreweryResults(responseJson) {
         $('.brewery-list').append
             (`<li class="review-link" data-longitude="${responseJson[i].longitude}" data-latitude="${responseJson[i].latitude}">
                 <h3>${responseJson[i].name}</h3>
-                <p>${responseJson[i].street}</br>${responseJson[i].city}, ${responseJson[i].state}</p>
-                <a href="${responseJson[i].website_url}" target="_blank">Link to website</a>
+                <p>${responseJson[i].street.length > 0 ? `${responseJson[i].street} </br>` : ''}${responseJson[i].city}, ${responseJson[i].state}</p>
+                <a href="${responseJson[i].website_url}" target="_blank">Check them out</a>
             </li>`)
     if (responseJson.length === 0) {
         $('#js-error-message').text('No results. Try again.');

@@ -12,7 +12,21 @@ html, body {
     background: linear-gradient( to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5) ),
     url(images/background1.jpg) no-repeat;
     background-size: 100% 100%;
+    background-attachment: fixed;
 }
+
+a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.5s, font-size 0.5s;
+}
+
+a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 18px;
+}
+
 
 .landing-page {
     display: flex;
@@ -25,9 +39,10 @@ html, body {
 }
 
 .header {
-    font-size: 4em;
+    font-size: 55px;
     font-family: 'Archivo Black', sans-serif;
-    letter-spacing: .01em;
+    letter-spacing: .1.5px;
+    text-shadow: rgb(119, 119, 119) 0px 0px 3px;
 }
 
 input {
@@ -43,15 +58,32 @@ input {
 
 button {
     border: 2px solid white;
-    color: white;
+    color: grey;
     font-weight: 600;
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.4);
     padding: 8px 13px;
-
 }
+
+.brewery-list {
+    background: rgba(255, 255, 255, 0.25);
+    margin-bottom: 10px;
+}
+
 
 li {
     font-family: 'Archivo Narrow', sans-serif;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin: 5px;
+}
+
+p {
+    margin: 5px;
 }
 
 .error-message {
@@ -65,4 +97,42 @@ li {
 .results-page {
     display: flex;
     justify-content: space-around;
+}
+
+/* Media Queries */
+
+@media only screen and (min-width: 768px) {
+    li {
+        font-size: 25px;
+    }
+    
+    h3 {
+        font-size: 30px;
+    }
+
+    a {
+        transition: color 0.5s, font-size 0.5s;
+    }
+    
+    a:hover {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    li {
+        font-size: 30px;
+    }
+    
+    h3 {
+        font-size: 45px;
+    }
+
+    a {
+        transition: color 0.5s, font-size 0.5s;
+    }
+    
+    a:hover {
+        font-size: 35px;
+    }
 }
